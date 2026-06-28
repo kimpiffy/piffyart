@@ -447,12 +447,13 @@ h1 { font-size: clamp(2.8rem, 7vw, 6rem); max-width: 10ch; }
 }
 
 /* ── Desktop: scatter blobs absolutely, one-viewport, 100 px effective margin ── */
-@media (min-width: 768px) {
+@media (min-width: 721px) {
   .blob-grid {
     display: block;
     position: relative;
     padding: 0;
     gap: 0;
+    height: 62.5vw; /* locks aspect ratio to 1440×900 reference so layout stays proportional */
   }
 
   .blob-card {
@@ -460,14 +461,24 @@ h1 { font-size: clamp(2.8rem, 7vw, 6rem); max-width: 10ch; }
     height: auto;
   }
 
-  /* aspect-ratio matches each blob's SVG viewBox so clip shapes never distort */
-  .blob-card--about    { left: 13vw; top:  6.8vh; width: 21.6vw; aspect-ratio: 28.32 / 28.08;   height: auto; }
-  .blob-card--digital  { left: 40vw; top:  6.8vh; width: 17vw; aspect-ratio: 96.02 / 82.81;   height: auto; }
-  .blob-card--community{ left: 8.5vw; top: 50.8vh; width: 20vw; aspect-ratio: 156.11 / 167.23; height: auto; }
-  .blob-card--personal { left: 60.6vw; top: 8.5vh; width: 24.2vw; aspect-ratio: 1; height: auto; }
-  .blob-card--contact  { left: 46.7vw; top: 44.6vh; width: 18.7vw; aspect-ratio: 95.98 / 118.95; height: auto; }
-  .blob-card--industry { left: 67.7vw; top: 57.9vh; width: 23.6vw; aspect-ratio: 90.72 / 40.57;   height: auto; }
-  .blob-card--shop     { left: 31.5vw; top: 34.9vh; width: 14.4vw; aspect-ratio: 306 / 431;  height: auto; }
+  /* top values converted from vh → vw (× 0.625) so only width drives scaling */
+  .blob-card--about    { left: 13vw;   top: 4.25vw;  width: 21.6vw; aspect-ratio: 28.32 / 28.08;   height: auto; }
+  .blob-card--digital  { left: 40vw;   top: 4.25vw;  width: 17vw;   aspect-ratio: 96.02 / 82.81;   height: auto; }
+  .blob-card--community{ left: 8.5vw;  top: 31.75vw; width: 20vw;   aspect-ratio: 156.11 / 167.23; height: auto; }
+  .blob-card--personal { left: 60.6vw; top: 5.31vw;  width: 24.2vw; aspect-ratio: 1;               height: auto; }
+  .blob-card--contact  { left: 46.7vw; top: 27.88vw; width: 18.7vw; aspect-ratio: 95.98 / 118.95; height: auto; }
+  .blob-card--industry { left: 67.7vw; top: 36.19vw; width: 23.6vw; aspect-ratio: 90.72 / 40.57;   height: auto; }
+  .blob-card--shop     { left: 31.5vw; top: 21.81vw; width: 14.4vw; aspect-ratio: 306 / 431;       height: auto; }
+}
+
+/* ── Tablet boost: nudge scale up so blobs aren't too small at 721–1100px ── */
+@media (min-width: 721px) and (max-width: 1100px) {
+  .blob-grid {
+    transform: scale(1.25);
+    transform-origin: top left;
+    width: 80%;
+    margin-bottom: -15.6vw; /* compensate layout gap: (62.5vw × 0.25) */
+  }
 }
 
 .detail-shell { display: grid; gap: 1.5rem; }
