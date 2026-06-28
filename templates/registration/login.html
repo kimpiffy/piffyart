@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}piffyart | login{% endblock %}
+
+{% block content %}
+<section class="detail-shell">
+  <form class="login-panel" method="post">
+    {% csrf_token %}
+    <p class="eyebrow">accounts</p>
+    <h1 class="HeaderFont Uranium">Login</h1>
+    {{ form.as_p }}
+    <button type="submit">Sign in</button>
+  </form>
+</section>
+{% endblock %}

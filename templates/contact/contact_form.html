@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}piffyart | contact{% endblock %}
+
+{% block content %}
+<section class="detail-shell">
+  <header class="detail-hero">
+    <p class="eyebrow">{{ page_tag }}</p>
+    <h1 class="HeaderFont Uranium">{{ page_title }}</h1>
+    <p class="lede">{{ page_body }}</p>
+  </header>
+
+  {% if messages %}
+    <ul class="flash-list">
+      {% for message in messages %}
+        <li>{{ message }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+  <form class="contact-form" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Send message</button>
+  </form>
+</section>
+{% endblock %}

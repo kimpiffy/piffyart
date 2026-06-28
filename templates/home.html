@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block title %}Piffyart | Homepage{% endblock %}
+
+{% block body_class %}BodyFont BgGradient home-page{% endblock %}
+
+{% block content %}
+<section class="home-stage home-stage--full">
+  <svg class="blob-defs" aria-hidden="true" focusable="false" width="0" height="0" viewBox="0 0 100 100">
+    <defs>
+      {% for blob in blobs %}
+        <clipPath id="blob-{{ blob.slug }}" clipPathUnits="objectBoundingBox">
+          <path d="{{ blob.path }}" transform="{{ blob.clip_transform|default:'scale(0.01)' }}" />
+        </clipPath>
+      {% endfor %}
+    </defs>
+  </svg>
+  <div class="blob-grid" data-blob-grid>
+    {% for blob in blobs %}
+      {% if blob.kind == "modal" %}
+        <button class="blob-card blob-card--{{ blob.slug }}" type="button" data-pop-blob data-modal-open="about-modal" data-blob-clip="blob-{{ blob.slug }}" style="--blob-rotation: {{ blob.rotation }}deg;">
+          <img class="blob-image" src="{{ blob.image }}" alt="" aria-hidden="true">
+          <span class="blob-title HeaderFont Uranium">{{ blob.title }}</span>
+        </button>
+      {% else %}
+        <a class="blob-card blob-card--{{ blob.slug }}" href="{{ blob.url }}" data-pop-blob data-blob-clip="blob-{{ blob.slug }}" style="--blob-rotation: {{ blob.rotation }}deg;">
+          <img class="blob-image" src="{{ blob.image }}" alt="" aria-hidden="true">
+          <span class="blob-title HeaderFont Uranium">{{ blob.title }}</span>
+        </a>
+      {% endif %}
+    {% endfor %}
+  </div>
+</section>
+
+<footer class="home-footer">
+  <div class="home-footer__email">
+    <a class="home-footer__mail BodyFont" href="mailto:piffyinfo@gmail.com">piffyinfo@gmail.com</a>
+    <button class="home-footer__copy BodyFont" type="button" data-copy-email data-copy-value="piffyinfo@gmail.com">Copy</button>
+  </div>
+  <nav class="home-footer__social" aria-label="Social links">
+    <a class="home-footer__link BodyFont" href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a>
+    <a class="home-footer__link BodyFont" href="https://www.instagram.com/" target="_blank" rel="noreferrer">Instagram</a>
+    <a class="home-footer__link BodyFont" href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
+  </nav>
+</footer>
+
+<dialog class="about-modal" id="about-modal" aria-labelledby="about-title">
+  <form method="dialog" class="modal-shell">
+    <button class="modal-close" value="close" aria-label="Close about modal">×</button>
+    <p class="eyebrow">About</p>
+    <h2 id="about-title" class="HeaderFont Uranium">A modal, not a page.</h2>
+    <p>This keeps the intro light and fast while leaving the main surface open for the seven-blob layout.</p>
+    <p>The top-left pocket stays clear for future nav expansion, and the mobile version becomes a selectable vertical mosaic.</p>
+  </form>
+</dialog>
+{% endblock %}

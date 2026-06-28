@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" role="img" aria-labelledby="title desc">
+  <title id="title">Blob placeholder</title>
+  <desc id="desc">A bright placeholder image used to verify blob placement.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fef08a"/>
+      <stop offset="45%" stop-color="#fb7185"/>
+      <stop offset="100%" stop-color="#38bdf8"/>
+    </linearGradient>
+    <pattern id="grid" width="80" height="80" patternUnits="userSpaceOnUse">
+      <path d="M 80 0 L 0 0 0 80" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="4"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="800" fill="url(#bg)"/>
+  <rect width="800" height="800" fill="url(#grid)"/>
+  <circle cx="220" cy="220" r="170" fill="rgba(255,255,255,0.24)"/>
+  <circle cx="580" cy="250" r="110" fill="rgba(255,255,255,0.25)"/>
+  <circle cx="560" cy="570" r="190" fill="rgba(255,255,255,0.16)"/>
+  <text x="50%" y="48%" text-anchor="middle" fill="#0f172a" font-family="Marola, serif" font-size="90" letter-spacing="10">PLACEHOLDER</text>
+  <text x="50%" y="58%" text-anchor="middle" fill="#0f172a" font-family="Velvelyne, sans-serif" font-size="34" letter-spacing="6">CHECK POSITION</text>
+</svg>

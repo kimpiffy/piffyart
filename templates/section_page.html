@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}{{ page_title }} | Piffyart{% endblock %}
+
+{% block content %}
+<section class="detail-shell">
+  <header class="detail-hero">
+    <p class="eyebrow">{{ page_tag }}</p>
+    <h1 class="HeaderFont Uranium">{{ page_title }}</h1>
+    <p class="lede">{{ page_body }}</p>
+  </header>
+</section>
+{% endblock %}

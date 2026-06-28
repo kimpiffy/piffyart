@@ -1,0 +1,31 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Piffyart{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/site.css' %}">
+    <script defer src="{% static 'js/home.js' %}"></script>
+  </head>
+  <body class="{% block body_class %}BodyFont BgGradient{% endblock %}">
+    <div class="page-backdrop"></div>
+    <div class="page-shell">
+      <nav class="site-nav" data-site-nav aria-label="Primary">
+        <button class="nav-toggle HeaderFont Uranium" type="button" data-nav-toggle aria-expanded="false" aria-controls="primary-menu">
+          <span class="nav-toggle__line nav-toggle__line--kim">KIM</span>
+          <span class="nav-toggle__line nav-toggle__line--piffy">PIFFY</span>
+        </button>
+        <div class="nav-menu" id="primary-menu" data-nav-panel>
+          <a class="nav-menu__item BodyFont" href="{% url 'home' %}">HOME</a>
+          <a class="nav-menu__item BodyFont" href="{% url 'shop:index' %}">SHOP</a>
+          <a class="nav-menu__item BodyFont" href="{% url 'contact:index' %}">CONTACT</a>
+        </div>
+      </nav>
+
+      <main class="site-main">
+        {% block content %}{% endblock %}
+      </main>
+    </div>
+  </body>
+</html>

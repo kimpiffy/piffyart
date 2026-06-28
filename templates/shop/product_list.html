@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}piffyart | shop{% endblock %}
+
+{% block content %}
+<section class="detail-shell">
+  <header class="detail-hero">
+    <p class="eyebrow">{{ page_tag }}</p>
+    <h1 class="HeaderFont Uranium">{{ page_title }}</h1>
+    <p class="lede">{{ page_body }}</p>
+  </header>
+
+  <div class="detail-grid">
+    {% for product in products %}
+      <article class="detail-card">
+        <p class="detail-card__kicker">Product</p>
+        <h2 class="HeaderFont Uranium">{{ product.name }}</h2>
+        <p>{{ product.description }}</p>
+        <p>£{{ product.price }}</p>
+      </article>
+    {% empty %}
+      <article class="detail-card">
+        <p class="detail-card__kicker">Product</p>
+        <h2 class="HeaderFont Uranium">No products yet</h2>
+        <p>Add products in the Django admin and they will appear here.</p>
+      </article>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}
