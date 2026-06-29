@@ -107,7 +107,7 @@ button, input, textarea { font: inherit; }
 
 .nav-toggle {
   display: grid;
-  gap: 0.05rem;
+  gap: 5px;
   justify-items: start;
   padding: 0.85rem 0.95rem 0.75rem;
   border: 0;
@@ -142,11 +142,23 @@ button, input, textarea { font: inherit; }
 }
 
 .nav-toggle__line--kim {
-  font-size: clamp(1.2rem, 2vw, 1.75rem);
+  font-size: 2.5rem;
 }
 
 .nav-toggle__line--piffy {
-  font-size: clamp(1.02rem, 1.8vw, 1.45rem);
+  font-size: 1.75rem;
+}
+
+/* 481px and up — 25% larger */
+@media (min-width: 481px) {
+  .nav-toggle__line--kim  { font-size: 3.125rem; }
+  .nav-toggle__line--piffy { font-size: 2.2rem; }
+}
+
+/* iMac and up — double base */
+@media (min-width: 1280px) {
+  .nav-toggle__line--kim  { font-size: 5rem; }
+  .nav-toggle__line--piffy { font-size: 3.5rem; }
 }
 
 .nav-menu {
@@ -447,7 +459,7 @@ h1 { font-size: clamp(2.8rem, 7vw, 6rem); max-width: 10ch; }
 }
 
 /* ── Desktop: scatter blobs absolutely, one-viewport, 100 px effective margin ── */
-@media (min-width: 721px) {
+@media (min-width: 481px) {
   .blob-grid {
     display: block;
     position: relative;
@@ -471,14 +483,26 @@ h1 { font-size: clamp(2.8rem, 7vw, 6rem); max-width: 10ch; }
   .blob-card--shop     { left: 31.5vw; top: 21.81vw; width: 14.4vw; aspect-ratio: 306 / 431;       height: auto; }
 }
 
-/* ── Tablet boost: nudge scale up so blobs aren't too small at 721–1100px ── */
-@media (min-width: 721px) and (max-width: 1100px) {
+/* ── 481–1024: double blob sizes ── */
+@media (min-width: 481px) and (max-width: 1024px) {
+  body.home-page { overflow-x: hidden; }
   .blob-grid {
-    transform: scale(1.25);
+    transform: scale(1.75);
     transform-origin: top left;
-    width: 80%;
-    margin-bottom: -15.6vw; /* compensate layout gap: (62.5vw × 0.25) */
+    margin-bottom: -62.5vw; /* compensate: 62.5vw × (2−1) */
   }
+}
+
+/* ── 482–601: fine-tune individual blob positions (scale(2) active, values ÷2) ── */
+@media (min-width: 482px) and (max-width: 601px) {
+  .blob-grid { overflow: visible; }
+  .blob-card--about    { top: -30vw; left: 10vw; }
+  .blob-card--digital  { left: 35vw;  top: -18vw; }
+  .blob-card--shop     { left: 5vw; top: -10vw; }
+  .blob-card--community{ left: 21vw; top: -4vw; }
+  .blob-card--personal { left: 30vw; top: -44vw; }
+  .blob-card--contact  { left: 35vw; top: 13vw; }
+  .blob-card--industry { left: 4vw; top: 18vw; }
 }
 
 .detail-shell { display: grid; gap: 1.5rem; }
@@ -525,7 +549,7 @@ h1 { font-size: clamp(2.8rem, 7vw, 6rem); max-width: 10ch; }
   color: var(--ink);
 }
 
-@media (max-width: 900px) {
+@media (max-width: 480px) {
   .site-nav {
     top: 0.75rem;
     left: 0.75rem;
@@ -557,7 +581,7 @@ h1 { font-size: clamp(2.8rem, 7vw, 6rem); max-width: 10ch; }
   }
 }
 
-@media (max-width: 720px) {
+@media (max-width: 480px) {
   .home-stage--full { overflow: visible; }
   .page-shell { width: 100%; max-width: none; margin: 0; padding: 0; }
   .home-stage, .detail-shell { padding: 0.75rem; }
