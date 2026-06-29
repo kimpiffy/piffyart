@@ -493,14 +493,36 @@ h1 { font-size: clamp(2.8rem, 7vw, 6rem); max-width: 10ch; }
   }
 }
 
-/* ── 482–601: fine-tune individual blob positions (scale(2) active, values ÷2) ── */
-@media (min-width: 482px) and (max-width: 601px) {
+/* ── 482–600: fine-tune individual blob positions (scale(2) active, values ÷2) ── */
+@media (min-width: 482px) and (max-width: 550px) {
   .blob-grid { overflow: visible; }
   .blob-card--about    { top: -30vw; left: 10vw; }
   .blob-card--digital  { left: 35vw;  top: -18vw; }
   .blob-card--shop     { left: 5vw; top: -10vw; }
   .blob-card--community{ left: 21vw; top: -4vw; }
   .blob-card--personal { left: 30vw; top: -44vw; }
+  .blob-card--contact  { left: 35vw; top: 13vw; }
+  .blob-card--industry { left: 4vw; top: 18vw; }
+}
+
+@media (min-width: 551px) and (max-width: 600px) {
+  .blob-grid { overflow: visible; }
+  .blob-card--about    { top: -30vw; left: 10vw; }
+  .blob-card--digital  { left: 35vw;  top: -18vw; }
+  .blob-card--shop     { left: 5vw; top: -10vw; }
+  .blob-card--community{ left: 21vw; top: -4vw; }
+  .blob-card--personal { left: 30vw; top: -40vw; }
+  .blob-card--contact  { left: 35vw; top: 13vw; }
+  .blob-card--industry { left: 4vw; top: 18vw; }
+}
+
+@media (min-width: 601px) and (max-width: 768px) {
+  .blob-grid { overflow: visible; }
+  .blob-card--about    { top: -30vw; left: 10vw; }
+  .blob-card--digital  { left: 35vw;  top: -18vw; }
+  .blob-card--shop     { left: 5vw; top: -10vw; }
+  .blob-card--community{ left: 21vw; top: -4vw; }
+  .blob-card--personal { left: 30vw; top: -40vw; }
   .blob-card--contact  { left: 35vw; top: 13vw; }
   .blob-card--industry { left: 4vw; top: 18vw; }
 }
